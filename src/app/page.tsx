@@ -1,8 +1,11 @@
+// Import required modules and components
 import Head from 'next/head';
 import styles from './page.module.css';
-import Dashboard from '@/Pages/dashboard'; // Update the import path
-import Header from '@/Pages/Header'
-import SideMenu from '@/Pages/SideMenu/SideMenu';
+import Dashboard from '@/Pages/dashboard'; // Assuming this is the correct path
+import Header from '@/Components/Header';
+import SideMenu from '@/Components/SideMenu/SideMenu';
+import Login from '@/Components/Login'
+
 
 export default function Home() {
   return (
@@ -12,9 +15,10 @@ export default function Home() {
         {/* Add other head elements as needed */}
       </Head>
       <main className={styles.main}>  
-      <Header />
-      <SideMenu />
+        <Header />
+        <SideMenu />
         <Dashboard />
+        <Login />
       </main>
     </div>
   );
