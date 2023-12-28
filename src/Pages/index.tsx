@@ -1,6 +1,6 @@
 // Import required modules and components
 import Head from 'next/head';
-import styles from './page.module.css';
+import styles from '@/app/page.module.css';
 import Dashboard from '@/Pages/dashboard'; // Assuming this is the correct path
 import Header from '@/Components/Header';
 import SideMenu from '@/Components/SideMenu/SideMenu';
