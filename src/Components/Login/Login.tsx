@@ -19,11 +19,11 @@ const Login = () => {
   const typedSession = session as Session;
 
   // Check if a session exists
-  if (typedSession?.user) {
+  if (typedSession) {
     return (
       <>
         {/* Display user information and sign-out button */}
-        Signed in as {typedSession.user.email} <br />
+        Signed in as {typedSession?.user?.email} <br />
         <button onClick={() => signOut()}>Sign Out</button>
       </>
     );
