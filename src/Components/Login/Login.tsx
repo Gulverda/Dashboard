@@ -1,5 +1,5 @@
 // Import required modules and components
-import { useSession, signIn, signOut } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import useCustomSession from "./useCustomSession";
 
 // Define a type for the session object
@@ -32,7 +32,7 @@ const Login = () => {
       <>
         {/* Display not signed in message and sign-in button */}
         Not Signed In <br />
-        <button onClick={() => signIn()}>Sign In</button>
+        <button onClick={() => signIn('google')}>Sign In with Google</button>
       </>
     );
   }
