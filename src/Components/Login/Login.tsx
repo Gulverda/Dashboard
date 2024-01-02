@@ -1,4 +1,4 @@
-// Import required modules and components
+// Import required modules and hooks
 import { signIn, signOut } from "next-auth/react";
 import useCustomSession from "./useCustomSession";
 
@@ -12,30 +12,30 @@ type Session = {
 };
 
 const Login = () => {
-  // Use the useCustomSession hook to get the session data
+  // Use the custom session hook to retrieve the session data
   const session = useCustomSession();
 
-  // Assert that session is of type Session
+  // Cast the session to the defined Session type for type-checking
   const typedSession = session as Session;
 
-  // Check if a session exists
-  if (typedSession) {
-    return (
-      <>
-        {/* Display user information and sign-out button */}
-        Signed in as {typedSession?.user?.email} <br />
-        <button onClick={() => signOut()}>Sign Out</button>
-      </>
-    );
-  } else {
-    return (
-      <>
-        {/* Display not signed in message and sign-in button */}
-        Not Signed In <br />
-        <button onClick={() => signIn('google')}>Sign In with Google</button>
-      </>
-    );
-  }
+  // Display content based on the presence of a session
+  return (
+    <>
+      {typedSession ? (
+        // Display user information and sign-out button if signed in
+        <>
+          Signed in as {typedSession.user?.email} <br />
+          <button onClick={() => signOut()}>Sign Out</button>
+        </>
+      ) : (
+        // Display sign-in button if not signed in
+        <>
+          Not Signed In <br />
+          <button onClick={() => signIn('google')}>Sign In with Google</button>
+        </>
+      )}
+    </>
+  );
 };
 
 export default Login;
