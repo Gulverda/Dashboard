@@ -45,6 +45,7 @@
 // export default Login;
 
 import { useSession, signIn, signOut } from "next-auth/react";
+import Avatar from '@mui/material/Avatar';
 
 const Login = () => {
   const { data: session } = useSession();
@@ -53,7 +54,9 @@ const Login = () => {
     <div>
       {session ? (
         <>
-          <p>Signed in as {session?.user?.email}</p>
+          Signed in as {session?.user?.email}
+          <p>Welcome {session?.user?.name}</p>
+          {/* <Avatar alt={session?.user?.name} src={session?.user?.image} /> */}
           <button onClick={() => signOut()}>Sign Out</button>
           {/* Additional content for signed-in users can be added here */}
         </>
