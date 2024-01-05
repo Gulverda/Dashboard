@@ -62,7 +62,7 @@ const Login = () => {
         </>
       ) : (
         <>
-          <p>Not signed in</p>
+          <p>Please log in</p>
           <button onClick={() => signIn()}>Sign in</button>
         </>
       )}
