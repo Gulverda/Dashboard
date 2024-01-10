@@ -1,0 +1,25 @@
+import React from 'react';
+import Login from '@/components/Login/Login';
+import { useSession } from 'next-auth/react';
+import Box from "@mui/material/Box";
+
+const SignIn = () => {
+    const { data: session } = useSession();
+
+    return (
+        <Box 
+            sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+        >
+            <h2>{session ? "Thank you for logging in" : "Please log in"}</h2>
+            <Login />
+            {/* Additional content can be added here if needed */}
+        </Box>
+    );
+}
+
+export default SignIn;
