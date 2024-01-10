@@ -44,51 +44,55 @@
 
 // export default Login;
 
+import styled from 'styled-components';
 import { useSession, signIn, signOut } from "next-auth/react";
 
-// Basic styles
-const containerStyle = {
-  fontFamily: 'Arial, sans-serif',
-  padding: '20px'
-};
+// Styled components
+const Container = styled.div`
+  font-family: 'Arial', sans-serif; /* Example font family */
+  text-align: center;
+  padding: 20px;
+`;
 
-const textStyle = {
-  fontSize: '1rem',
-  marginBottom: '10px'
-};
+const Text = styled.p`
+  font-size: 1rem;
+  margin-bottom: 10px;
+`;
 
-const buttonStyle = {
-  backgroundColor: 'green',
-  color: 'white',
-  padding: '10px 20px',
-  border: 'none',
-  borderRadius: '5px',
-  cursor: 'pointer',
-  transition: 'background-color 0.3s ease',
-  ':hover': {
-    backgroundColor: 'darkgreen'
+const Button = styled.button`
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darkgreen;
   }
-};
+`;
 
 const Login = () => {
   const { data: session } = useSession();
 
   return (
-    <div style={containerStyle}>
+    <Container>
       {session ? (
         <>
-          <p style={textStyle}>Signed in as {session?.user?.email}</p>
-          <p style={textStyle}>Welcome {session?.user?.name}</p>
-          <button style={buttonStyle} onClick={() => signOut()}>Sign Out</button>
+          <Text>Signed in as {session?.user?.email}</Text>
+          <Text>Welcome {session?.user?.name}</Text>
+          {/* <Avatar alt={session?.user?.name} src={session?.user?.image} /> */}
+          <Button onClick={() => signOut()}>Sign Out</Button>
           {/* Additional content for signed-in users can be added here */}
         </>
       ) : (
         <>
-          <p style={textStyle}>Please log in</p>
-          <button style={buttonStyle} onClick={() => signIn()}>Sign in</button>
+          <Text>Please log in</Text>
+          <Button onClick={() => signIn()}>Sign in</Button>
         </>
       )}
-    </div>
+    </Container>
   );
 };
 
