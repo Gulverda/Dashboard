@@ -19,7 +19,6 @@ import EqualizerIcon from "@mui/icons-material/Equalizer";
 import { Settings } from "@mui/icons-material";
 import NextLink from "next/link";
 import { signOut } from "next-auth/react";
-import { red } from "@mui/material/colors";
 
 // Styled components
 const DrawerHeader = styled("div")(({ theme }) => ({
