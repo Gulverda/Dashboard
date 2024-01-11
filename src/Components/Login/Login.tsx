@@ -44,55 +44,59 @@
 
 // export default Login;
 
-import styled from 'styled-components';
+import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 
-// Styled components
-const Container = styled.div`
-  font-family: 'Arial', sans-serif; /* Example font family */
-  text-align: center;
-  padding: 20px;
-`;
+const containerStyle = {
+  
+  textAlign: 'center',
+  padding: '20px',
+};
 
-const Text = styled.p`
-  font-size: 1rem;
-  margin-bottom: 10px;
-`;
+const textStyle = {
+  fontFamily: 'Arial, sans-serif',
+  fontSize: '1rem',
+  marginBottom: '10px',
+};
 
-const Button = styled.button`
-  background-color: green;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+const buttonStyle = {
+  backgroundColor: 'green',
+  color: 'white',
+  padding: '10px 20px',
+  border: 'none',
+  borderRadius: '5px',
+  cursor: 'pointer',
+  transition: 'background-color 0.3s ease',
+};
 
-  &:hover {
-    background-color: darkgreen;
-  }
-`;
+const hoverButtonStyle = {
+  backgroundColor: 'darkgreen',
+};
 
 const Login = () => {
   const { data: session } = useSession();
 
   return (
-    <Container>
+    <div>
       {session ? (
         <>
-          <Text>Signed in as {session?.user?.email}</Text>
-          <Text>Welcome {session?.user?.name}</Text>
+          <p style={textStyle}>Signed in as {session?.user?.email}</p>
+          <p style={textStyle}>Welcome {session?.user?.name}</p>
           {/* <Avatar alt={session?.user?.name} src={session?.user?.image} /> */}
-          <Button onClick={() => signOut()}>Sign Out</Button>
+          <button style={buttonStyle} onClick={() => signOut()}>
+            Sign Out
+          </button>
           {/* Additional content for signed-in users can be added here */}
         </>
       ) : (
         <>
-          <Text>Please log in</Text>
-          <Button onClick={() => signIn()}>Sign in</Button>
+          <p style={textStyle}>Please log in</p>
+          <button style={buttonStyle} onClick={() => signIn()}>
+            Sign in
+          </button>
         </>
       )}
-    </Container>
+    </div>
   );
 };
 
