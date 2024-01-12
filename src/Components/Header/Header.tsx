@@ -16,9 +16,6 @@ import { useMediaQuery } from "@mui/material";
 const Header = () => {
   const { data: session } = useSession();
   const userProfileImg = session?.user?.image as string;
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
@@ -88,26 +85,27 @@ const Header = () => {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              <MenuItem onClick={() => (session ? signOut() : signIn())}>
-                <Typography textAlign="center">
-                  {session ? "Logout" : "Login"}
-                </Typography>
-              </MenuItem>
+  sx={{ mt: "45px" }}
+  id="menu-appbar"
+  anchorEl={anchorElUser}
+  anchorOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  keepMounted
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "right",
+  }}
+  open={Boolean(anchorElUser)}
+  onClose={handleCloseUserMenu}
+  disableScrollLock  // Add this prop to disable scroll lock
+>
+  <MenuItem onClick={() => (session ? signOut() : signIn())}>
+    <Typography textAlign="center">
+      {session ? "Logout" : "Login"}
+    </Typography>
+  </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
