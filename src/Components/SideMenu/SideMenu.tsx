@@ -44,14 +44,12 @@ const DrawerListItemButton = styled(ListItemButton)<{ open: boolean }>(({ theme,
 // Constants
 const menuRouteList = ["data", "profile", "settings", ""];
 const menuListTranslations = ["Data", "Profile", "Settings", "Sign Out"];
-// const menuListIcons = [
-//   // <EqualizerIcon />,
-//   // <Person2Icon />,
-//   // <Settings />,
-//   // <ExitToAppIcon />,
-// ];
-
-// ... (other imports)
+const menuListIcons = [
+  <EqualizerIcon />,
+  <Person2Icon />,
+  <Settings />,
+  <ExitToAppIcon />,
+];
 
 const SideMenu = () => {
   const theme = useTheme();
@@ -118,7 +116,7 @@ const SideMenu = () => {
             passHref
           >
             <DrawerListItemButton
-              key={index} // Add key prop here
+              key={text} // Use text as the key
               component="a"
               onClick={() => handleListItemButtonClick(text)}
               title={text}
