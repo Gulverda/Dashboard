@@ -55,16 +55,16 @@ const SideMenu = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  const handleDrawerToggle = React.useCallback(() => {
-    setOpen((prevOpen) => !prevOpen);
-  }, []);
+  const handleDrawerToggle = () => {
+    setOpen(!open);
+  };
 
-  const handleListItemButtonClick = React.useCallback((text: string) => {
+  const handleListItemButtonClick = (text: string) => {
     if (text === "Sign Out") {
       signOut();
     }
     setOpen(false);
-  }, []);
+  };
 
   return (
     <Drawer
@@ -76,9 +76,22 @@ const SideMenu = () => {
         "& .MuiDrawer-paper": {
           backgroundColor: '#2c2c2c',
           transition: "width 0.3s ease",
-          width: open ? 230 : 55,
-          "& .MuiIconButton-root, & .MuiListItemIcon-root, & .MuiTypography-root": {
+
+          "&.open": {
+            width: 230,
+          },
+
+          "& .MuiIconButton-root": {
             color: '#f5f5f5',
+          },
+
+          "& .MuiListItemIcon-root": {
+            color: '#f5f5f5',
+          },
+
+          "& .MuiTypography-root": {
+            color: '#f5f5f5',
+            opacity: 1,
           },
         },
       }}
