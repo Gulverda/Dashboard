@@ -44,12 +44,12 @@ const DrawerListItemButton = styled(ListItemButton)<{ open: boolean }>(({ theme,
 // Constants
 const menuRouteList = ["data", "profile", "settings", ""];
 const menuListTranslations = ["Data", "Profile", "Settings", "Sign Out"];
-const menuListIcons = [
-  <EqualizerIcon />,
-  <Person2Icon />,
-  <Settings />,
-  <ExitToAppIcon />,
-];
+// const menuListIcons = [
+//   // <EqualizerIcon />,
+//   // <Person2Icon />,
+//   // <Settings />,
+//   // <ExitToAppIcon />,
+// ];
 
 // ... (other imports)
 
