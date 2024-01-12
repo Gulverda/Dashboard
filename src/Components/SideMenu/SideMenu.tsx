@@ -45,14 +45,13 @@ const DrawerListItemButton = styled(ListItemButton)<{ open: boolean }>(({ theme,
 const menuRouteList = ["data", "profile", "settings", ""];
 const menuListTranslations = ["Data", "Profile", "Settings", "Sign Out"];
 const menuListIcons = [
-  <EqualizerIcon />,
-  <Person2Icon />,
-  <Settings />,
-  <ExitToAppIcon />,
+  <EqualizerIcon key="equalizer" />,
+  <Person2Icon key="person2" />,
+  <Settings key="settings" />,
+  <ExitToAppIcon key="exitToApp" />,
 ];
 
 const SideMenu = () => {
-  const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -74,7 +73,7 @@ const SideMenu = () => {
       className={scss.sideMenu}
       sx={{
         "& .MuiDrawer-paper": {
-          backgroundColor: "#2c2c2c",
+          backgroundColor: '#2c2c2c',
           transition: "width 0.3s ease",
 
           "&.open": {
@@ -82,27 +81,22 @@ const SideMenu = () => {
           },
 
           "& .MuiIconButton-root": {
-            color: "#f5f5f5",
+            color: '#f5f5f5',
           },
 
           "& .MuiListItemIcon-root": {
-            color: "#f5f5f5",
+            color: '#f5f5f5',
           },
 
           "& .MuiTypography-root": {
-            color: "#f5f5f5",
+            color: '#f5f5f5',
             opacity: 1,
           },
         },
       }}
     >
       <DrawerHeader>
-        <IconButton
-          onClick={handleDrawerToggle}
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-        >
+        <IconButton onClick={handleDrawerToggle} edge="start" color="inherit" aria-label="menu">
           {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </IconButton>
       </DrawerHeader>
@@ -110,29 +104,27 @@ const SideMenu = () => {
       <Divider />
       <DrawerList open={open}>
         {menuListTranslations.map((text, index) => (
-          <NextLink
-            key={index}
-            href={`/dashboard/${menuRouteList[index]}`}
-            passHref
-          >
-            <DrawerListItemButton
-              key={text} // Use text as the key
-              component="a"
-              onClick={() => handleListItemButtonClick(text)}
-              title={text}
-              aria-label={text}
-              open={open}
-            >
-              <ListItemIcon>{menuListIcons[index]}</ListItemIcon>
-              <ListItemText
-                primary={text}
-                sx={{
-                  color: "#f5f5f5",
-                  opacity: open ? 1 : 0,
-                }}
-              />
-            </DrawerListItemButton>
-          </NextLink>
+          <ListItem key={index} disablePadding>
+            <NextLink href={`/dashboard/${menuRouteList[index]}`}>
+              <DrawerListItemButton
+                onClick={() => handleListItemButtonClick(text)}
+                title={text}
+                aria-label={text}
+                open={open}
+              >
+                <ListItemIcon>
+                  {menuListIcons[index]}
+                </ListItemIcon>
+                <ListItemText
+                  primary={text}
+                  sx={{
+                    color: '#f5f5f5',
+                    opacity: open ? 1 : 0,
+                  }}
+                />
+              </DrawerListItemButton>
+            </NextLink>
+          </ListItem>
         ))}
       </DrawerList>
     </Drawer>
