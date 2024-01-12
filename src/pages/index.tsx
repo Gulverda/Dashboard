@@ -1,4 +1,4 @@
-import Head from 'next/head';=
+import Head from 'next/head';
 import SideMenu from '@/components/SideMenu/SideMenu';
 import Dashboard from '@/pages/dashboard';
 import Footer from '@/components/Footer'
