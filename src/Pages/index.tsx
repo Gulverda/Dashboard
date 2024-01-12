@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Login from '@/components/Login/Login'
+import Login from '@/components/Login'
 import Header from '@/components/Header'
 import SideMenu from '@/components/SideMenu/SideMenu';
 import Dashboard from '@/pages/dashboard';
