@@ -51,6 +51,8 @@ const menuListIcons = [
   <ExitToAppIcon />,
 ];
 
+// ... (other imports)
+
 const SideMenu = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -116,6 +118,8 @@ const SideMenu = () => {
             passHref
           >
             <DrawerListItemButton
+              key={index} // Add key prop here
+              component="a"
               onClick={() => handleListItemButtonClick(text)}
               title={text}
               aria-label={text}
