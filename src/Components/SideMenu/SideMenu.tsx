@@ -19,6 +19,7 @@ import EqualizerIcon from "@mui/icons-material/Equalizer";
 import { Settings } from "@mui/icons-material";
 import NextLink from "next/link";
 import { signOut } from "next-auth/react";
+import scss from "./SideMenu.module.scss";
 
 // Styled components
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -44,10 +45,10 @@ const DrawerListItemButton = styled(ListItemButton)<{ open: boolean }>(({ theme,
 const menuRouteList = ["data", "profile", "settings", ""];
 const menuListTranslations = ["Data", "Profile", "Settings", "Sign Out"];
 const menuListIcons = [
-  <EqualizerIcon sx={{color: '#f5f5f5'}}/>,
-  <Person2Icon sx={{color: '#f5f5f5'}} />,
-  <Settings sx={{color: '#f5f5f5'}} />,
-  <ExitToAppIcon sx={{color: '#f5f5f5'}} />,
+  <EqualizerIcon />,
+  <Person2Icon />,
+  <Settings />,
+  <ExitToAppIcon />,
 ];
 
 const SideMenu = () => {
@@ -70,16 +71,34 @@ const SideMenu = () => {
       variant="permanent"
       anchor="left"
       open={open}
+      className={scss.sideMenu}
       sx={{
-        width: open ? 230 : 55,
         "& .MuiDrawer-paper": {
-          backgroundColor: '#2c2c2c'
+          backgroundColor: '#2c2c2c',
+          transition: "width 0.3s ease",
+
+          "&.open": {
+            width: 230,
+          },
+
+          "& .MuiIconButton-root": {
+            color: '#f5f5f5',
+          },
+
+          "& .MuiListItemIcon-root": {
+            color: '#f5f5f5',
+          },
+
+          "& .MuiTypography-root": {
+            color: '#f5f5f5',
+            opacity: 1,
+          },
         },
       }}
     >
       <DrawerHeader>
         <IconButton onClick={handleDrawerToggle} edge="start" color="inherit" aria-label="menu">
-          {open ? <ChevronLeftIcon sx={{color: '#f5f5f5'}} /> : <ChevronRightIcon sx={{color: '#f5f5f5'}} />}
+          {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </IconButton>
       </DrawerHeader>
       <Divider />
