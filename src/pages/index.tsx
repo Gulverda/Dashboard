@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Login from '@/components/Login'
-import Header from '@/components/Header/Header'
+import Login from '@/components/Login/Login'
+import Header from '../components/Header'
 import SideMenu from '@/components/SideMenu';
 import Dashboard from '@/pages/dashboard';
 import '../app/globals.css';
