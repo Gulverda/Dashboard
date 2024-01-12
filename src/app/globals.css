@@ -1,6 +1,6 @@
 :root {
   text-align: center; 
-  height: 100vh;
+  height: auto;
   --max-width: 1200px;
   --border-radius: 8px; 
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -94,6 +94,9 @@ body {
       rgb(var(--background-start-rgb)),
       rgb(var(--background-end-rgb))
     );
+    background-repeat: no-repeat;
+    height: 100vh;
+
 }
 
 a {
