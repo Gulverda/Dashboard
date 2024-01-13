@@ -1,11 +1,11 @@
 import Head from 'next/head';
-// import SideMenu from '@/components/SideMenu/SideMenu';
+import Login from '@/components/Login'
+import Header from '@/components/Header'
+import SideMenu from '@/components/SideMenu';
 import Dashboard from '@/pages/dashboard';
 import Footer from '@/components/Footer'
 import '../app/globals.css';
 import { useSession } from 'next-auth/react';
-// import Login from '@/components/Login';
-// import Header from '@/components/Header'
 
 const padding = {
   paddingLeft: "50px"
@@ -23,18 +23,18 @@ const Home: React.FC = () => {
         <link rel="icon" href="favicon.ico" />
       </Head>
       <main>
-        {/* <Header /> */}
+        <Header />
         {
           session && (
             <>
-              {/* <SideMenu /> */}
+              <SideMenu />
               <Dashboard />
                    <Footer />
             </>
           )
         }
 
-        {/* <Login/> */}
+        <Login/>
       </main>
     </div>
   );
