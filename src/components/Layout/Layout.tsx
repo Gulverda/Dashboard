@@ -1,4 +1,4 @@
-// import SideMenu from "@/components/SideMenu";
+import SideMenu from "@/components/SideMenu";
 import scss from "./Layout.module.scss";
 import { useSession } from "next-auth/react";
 import React from "react";
@@ -20,7 +20,7 @@ const Layout = (props: any) => {
         className={scss.layout}
         style={{ padding: session ? "0 24px 0 80px" : 0 }}
       >
-        {/* {session && <SideMenu />} */}
+        {session && <SideMenu />}
         {props.children}
         <Footer />
       </main>
