@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import '../app/globals.css';
 import { useSession } from 'next-auth/react';
 import Login from 'src/pages/Login';
-import Header from '@/components/Header';
+// import Header from 'src/pages/Header';
 
 const padding = {
   paddingLeft: "50px"
@@ -23,7 +23,7 @@ const Home: React.FC = () => {
         <link rel="icon" href="favicon.ico" />
       </Head>
       <main>
-        <Header />
+        {/* <Header /> */}
         
         {
           session && (
