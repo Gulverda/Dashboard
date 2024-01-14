@@ -4,8 +4,8 @@ import Dashboard from '@/pages/dashboard';
 import Footer from '@/components/Footer'
 import '../app/globals.css';
 import { useSession } from 'next-auth/react';
-import Login from 'src/pages/Login';
-import Header from '../app/Header';
+import Login from '@/components/Login';
+import Header from '@/components/Header';
 
 const padding = {
   paddingLeft: "50px"
