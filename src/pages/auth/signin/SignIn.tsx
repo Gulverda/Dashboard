@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "@/components/Login";
+import Login from "src/pages/Login";
 import { useSession } from "next-auth/react";
 import Box from "@mui/material/Box";
 
