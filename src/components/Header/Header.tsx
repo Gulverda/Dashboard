@@ -17,10 +17,15 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
+  const background = {
+    background: "#9e3055",
+    color: "#252525"
+  }
+
   const tabletCheck = useMediaQuery("(min-width: 768px)");
 
   return (
-    <AppBar position="static" sx={{ marginBottom: "30px", paddingLeft: "50px" }}>
+    <AppBar position="static" sx={{ marginBottom: "30px", paddingLeft: "50px" }} style={background}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
