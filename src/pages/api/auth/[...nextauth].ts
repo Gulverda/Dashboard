@@ -16,5 +16,6 @@ export default NextAuth({
             }
         }),
     ],
+    secret: process.env.SECRET,
     debug: true, // Enable debug mode for more verbose logs
 });
