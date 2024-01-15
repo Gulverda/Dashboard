@@ -50,14 +50,20 @@ const Profile: React.FC = () => {
     console.log(formData); // Submit form data to server here
   };
 
+  const background = {
+    background: "transparent",
+    border: "none",
+    height: "91.6vh"
+  }
+
   return (
     <>
       <h1>Profile</h1>
       <Box>
-        <Typography variant="h4" sx={{ paddingBottom: 4 }}>
+        <Typography variant="h4" sx={{ paddingBottom: 4 }} >
           Hey {session?.user?.name || "User"}, welcome to your profile 👋
         </Typography>
-        <Paper sx={{ padding: "1rem 2rem" }}>
+        <Paper sx={{ padding: "1rem 2rem" }}style={background}>
           <Grid container justifyContent="center">
             <Grid item xs={12} sm={8} md={6}>
               <Box display="flex" flexDirection="column" alignItems="center">
