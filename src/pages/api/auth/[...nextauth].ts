@@ -15,6 +15,6 @@ export default NextAuth({
                 }
             }
         }),
-    ]
+    ],
+    debug: true, // Enable debug mode for more verbose logs
 });
-
