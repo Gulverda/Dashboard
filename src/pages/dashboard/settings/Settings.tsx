@@ -32,9 +32,13 @@ const Settings = () => {
     };    
     const handleSubmit = () => {};
 
+    const font = {
+      fontFamily: "sans-serif",
+    }
+
     return (
         <>
-        <h1>Settings</h1>
+        <h1 style={font}>Settings</h1>
         <Box>
         <Typography variant="h4" gutterBottom>
           Dashboard Features
