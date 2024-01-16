@@ -10,15 +10,24 @@ const Data = () => {
     maxColumns: 15,
   });
 
+  const font = {
+    fontFamily: "sans-serif",
+    marginTop: "20px"
+  }
+
+  const forDiv = {
+    marginTop: "50px"
+  }
+
   return (
-    <>
-      <h1>Data</h1>
-      <p>
+    <div style={forDiv}>
+      <h1 style={font}>Data</h1>
+      <p style={font}>
         The bestest of data available here at your finger tips in table form.
         This could be a whole section of data that is available for users to
         deep dive further into the numbers/stats.
       </p>
-      <div style={{ height: "900px", width: "100%" }}>
+      <div style={{ height: "900px", width: "100%", marginTop: "50px"}}>
         <DataGrid
           slots={{
             loadingOverlay: LinearProgress,
@@ -27,7 +36,7 @@ const Data = () => {
           {...data}
         />
       </div>
-    </>
+    </div>
   );
 };
 
