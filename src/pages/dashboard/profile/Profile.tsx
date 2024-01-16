@@ -51,14 +51,29 @@ const Profile: React.FC = () => {
   };
 
   const background = {
-    background: "transparent",
+    background: "none",
+    boxShadow: "none",
+    width: "auto",
+    justifyContent: "center",
     border: "none",
-    height: "91.6vh"
+    height: "auto",
+    display: "flex",
+    alignItems: "center"
   }
 
+  const h1title = {
+    marginTop: "50px"
+  }
+
+  const font ={
+    fontFamily: "sans-serif"
+  }
+
+
+
   return (
-    <>
-      <h1>Profile</h1>
+    <div style={font}>
+      <h1 style={h1title}>Profile</h1>
       <Box>
         <Typography variant="h4" sx={{ paddingBottom: 4 }} >
           Hey {session?.user?.name || "User"}, welcome to your profile 👋
@@ -158,7 +173,7 @@ const Profile: React.FC = () => {
           </Grid>
         </Paper>
       </Box>
-    </>
+    </div>
   );
 };
 
